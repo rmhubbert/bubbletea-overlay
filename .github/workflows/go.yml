@@ -1,0 +1,120 @@
+# This workflow will build, lint and test a golang project.
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+name: Analyse, lint, test & release
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  #################################################
+  # Run various linters
+  #################################################
+  lint:
+    name: Analyse & Lint
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.x
+
+      - name: Lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: v1.60.3
+          args: -E staticcheck -E goimports -E gofmt -E gomoddirectives -E gosec -E predeclared -E bodyclose -E durationcheck -E errname -E gocheckcompilerdirectives -E nosprintfhostport -E reassign -E testifylint
+
+  #################################################
+  # Run tests
+  #################################################
+  test:
+    name: Test
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.x
+
+      - name: Unit Tests
+        run: go test -race -vet=off -v ./...
+
+  #################################################
+  # Update version tag
+  #################################################
+  semver-bump:
+    name: Increment the version
+    needs: [lint, test]
+    runs-on: ubuntu-22.04
+    outputs:
+      next-version: ${{ steps.semver.outputs.next }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Calculate next version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+          branch: main
+          majorList: "build!, ci!, docs!, feat!, fix!, perf!, refactor!, style!, test!"
+          minorList: "feat"
+          patchList: "fix, perf, refactor, test"
+
+      - name: Push next version tag
+        uses: thejeff77/action-push-tag@v1.0.0
+        with:
+          tag: ${{ steps.semver.outputs.next }}
+          message: "${{ steps.semver.outputs.next }}"
+
+  #################################################
+  # Update changelog and release
+  #################################################
+  release:
+    name: Create a new release
+    needs: [semver-bump]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Update CHANGELOG
+        id: changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ needs.semver-bump.outputs.next-version }}
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          draft: false
+          makeLatest: true
+          prerelease: true
+          name: ${{ needs.semver-bump.outputs.next-version }}
+          tag: ${{ needs.semver-bump.outputs.next-version }}
+          body: ${{ steps.changelog.outputs.changes }}
+          token: ${{ github.token }}
+
+      - name: Commit CHANGELOG.md
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: main
+          commit_message: "docs: update CHANGELOG.md for ${{ needs.semver-bump.outputs.next-version }} [skip ci]"
+          file_pattern: CHANGELOG.md
