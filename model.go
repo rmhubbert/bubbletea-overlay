@@ -151,5 +151,22 @@ func (m *Model) Update(message tea.Msg) (tea.Model, tea.Cmd) {
 // View applies and styling and handles rendering the view. It partly implements the tea.Model
 // interface.
 func (m *Model) View() string {
-	return m.composite()
+	if m.Foreground == nil && m.Background == nil {
+		return ""
+	}
+	if m.Foreground == nil && m.Background != nil {
+		return m.Background.View()
+	}
+	if m.Foreground != nil && m.Background == nil {
+		return m.Foreground.View()
+	}
+
+	return composite(
+		m.Foreground.View(),
+		m.Background.View(),
+		m.XPosition,
+		m.YPosition,
+		m.XOffset,
+		m.YOffset,
+	)
 }
