@@ -106,7 +106,7 @@ jobs:
           allowUpdates: true
           draft: false
           makeLatest: true
-          prerelease: true
+          prerelease: false
           name: ${{ needs.semver-bump.outputs.next-version }}
           tag: ${{ needs.semver-bump.outputs.next-version }}
           body: ${{ steps.changelog.outputs.changes }}
