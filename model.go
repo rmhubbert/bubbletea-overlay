@@ -95,7 +95,7 @@ func composite(
 		return fg
 	}
 
-	x, y := m.offsets()
+	x, y := offsets(fg, bg, xPos, yPos, xOff, yOff)
 	x = clamp(x, 0, bgWidth-fgWidth)
 	y = clamp(y, 0, bgHeight-fgHeight)
 
