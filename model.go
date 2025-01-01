@@ -44,46 +44,50 @@ func New(fore tea.Model, back tea.Model, xPos Position, yPos Position, xOff int,
 
 // offsets calculates the actual vertical and horizontal offsets used to position the foreground
 // tea.Model relative to the background tea.Model.
-func (m *Model) offsets() (int, int) {
+func offsets(fg, bg string, xPos, yPos Position, xOff, yOff int) (int, int) {
 	var x, y int
-	switch m.XPosition {
+	switch xPos {
 	case Center:
-		halfBackgroundWidth := (lipgloss.Width(m.Background.View()) + 1) / 2
-		halfForegroundWidth := (lipgloss.Width(m.Foreground.View()) + 1) / 2
+		halfBackgroundWidth := (lipgloss.Width(bg) + 1) / 2
+		halfForegroundWidth := (lipgloss.Width(fg) + 1) / 2
 		x = halfBackgroundWidth - halfForegroundWidth
 	case Right:
-		x = lipgloss.Width(m.Background.View()) - lipgloss.Width(m.Foreground.View())
+		x = lipgloss.Width(bg) - lipgloss.Width(fg)
 	}
 
-	switch m.YPosition {
+	switch yPos {
 	case Center:
-		halfBackgroundHeight := (lipgloss.Height(m.Background.View()) + 1) / 2
-		halfForegroundHeight := (lipgloss.Height(m.Foreground.View()) + 1) / 2
+		halfBackgroundHeight := (lipgloss.Height(bg) + 1) / 2
+		halfForegroundHeight := (lipgloss.Height(fg) + 1) / 2
 		y = halfBackgroundHeight - halfForegroundHeight
 	case Bottom:
-		y = lipgloss.Height(m.Background.View()) - lipgloss.Height(m.Foreground.View())
+		y = lipgloss.Height(bg) - lipgloss.Height(fg)
 	}
 
 	debug(
-		"X position: "+strconv.Itoa(int(m.XPosition)),
-		"Y position: "+strconv.Itoa(int(m.YPosition)),
-		"X offset: "+strconv.Itoa(x+m.XOffset),
-		"Y offset: "+strconv.Itoa(y+m.YOffset),
-		"Background width: "+strconv.Itoa(lipgloss.Width(m.Background.View())),
-		"Foreground width: "+strconv.Itoa(lipgloss.Width(m.Foreground.View())),
-		"Background height: "+strconv.Itoa(lipgloss.Height(m.Background.View())),
-		"Foreground height: "+strconv.Itoa(lipgloss.Height(m.Foreground.View())),
+		"X position: "+strconv.Itoa(int(xPos)),
+		"Y position: "+strconv.Itoa(int(yPos)),
+		"X offset: "+strconv.Itoa(x+xOff),
+		"Y offset: "+strconv.Itoa(y+yOff),
+		"Background width: "+strconv.Itoa(lipgloss.Width(bg)),
+		"Foreground width: "+strconv.Itoa(lipgloss.Width(fg)),
+		"Background height: "+strconv.Itoa(lipgloss.Height(bg)),
+		"Foreground height: "+strconv.Itoa(lipgloss.Height(fg)),
 	)
 
-	return x + m.XOffset, y + m.YOffset
+	return x + xOff, y + yOff
 }
 
 // composite merges and flattens the background and foreground views into a single view.
 // This implementation is based off of the one used by Superfile -
 // https://github.com/yorukot/superfile/blob/main/src/pkg/string_function/overplace.go
-func (m *Model) composite() string {
-	fg := m.Foreground.View()
-	bg := m.Background.View()
+func composite(
+	fg string,
+	bg string,
+	xPos Position,
+	yPos Position,
+	xOff, yOff int,
+) string {
 	fgWidth, fgHeight := lipgloss.Size(fg)
 	bgWidth, bgHeight := lipgloss.Size(bg)
 
