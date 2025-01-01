@@ -20,7 +20,7 @@ const (
 	Center
 )
 
-// Model implements tea.Model, and manages the browser UI.
+// Model implements tea.Model, and manages the overlay UI.
 type Model struct {
 	Foreground tea.Model
 	Background tea.Model
