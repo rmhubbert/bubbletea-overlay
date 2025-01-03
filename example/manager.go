@@ -27,14 +27,14 @@ func (m *Manager) Init() tea.Cmd {
 	m.state = mainView
 	m.foreground = &Foreground{}
 	m.background = &Background{}
-	m.overlay = &overlay.Model{
-		Foreground: m.foreground,
-		Background: m.background,
-		XPosition:  overlay.Center,
-		YPosition:  overlay.Center,
-		XOffset:    0,
-		YOffset:    0,
-	}
+	m.overlay = overlay.New(
+		m.foreground,
+		m.background,
+		overlay.Center,
+		overlay.Center,
+		0,
+		0,
+	)
 	return nil
 }
 
