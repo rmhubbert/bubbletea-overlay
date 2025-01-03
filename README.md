@@ -7,6 +7,8 @@
 
 ![running the program](./example/example.gif)
 
+Credit where it is due, the compositing method used in this component is based on [Superfile's](https://github.com/yorukot/superfile/blob/main/src/pkg/string_function/overplace.go) implementation.
+
 ## Installation
 
 ```go
