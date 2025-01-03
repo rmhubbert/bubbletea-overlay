@@ -1,6 +1,8 @@
-# Bubble Tea Overlay Example
+# Overlay Example
 
 This is a simple example of how you can easily create a modal window with Bubble Tea Overlay.
+
+![running the program](./example.gif)
 
 ## Installation
 
