@@ -1,10 +1,13 @@
+// Package Overlay is a component for Charm's Bubble Tea TUI framework that aims to simplify
+// creating and managing overlays and modal windows in your TUI apps.
 package overlay
 
 import (
 	tea "github.com/charmbracelet/bubbletea"
 )
 
-// Position represents a relative offset in the TUI.
+// Position represents a relative offset in the TUI. There are five possible values; Top, Right,
+// Bottom, Left, and Center.
 type Position int
 
 const (
@@ -15,7 +18,8 @@ const (
 	Center
 )
 
-// Model implements tea.Model, and manages the overlay UI.
+// Model implements tea.Model, and manages calculatin and compositing the overlay UI from the
+// backbround and foreground models.
 type Model struct {
 	Foreground tea.Model
 	Background tea.Model
@@ -25,7 +29,7 @@ type Model struct {
 	YOffset    int
 }
 
-// New creates, instantiates, and returns a new overlay Model.
+// New creates, instantiates, and returns a pointer to a new overlay Model.
 func New(fore tea.Model, back tea.Model, xPos Position, yPos Position, xOff int, yOff int) *Model {
 	return &Model{
 		Foreground: fore,
@@ -47,7 +51,7 @@ func (m *Model) Update(message tea.Msg) (tea.Model, tea.Cmd) {
 	return m, nil
 }
 
-// View applies and styling and handles rendering the view. It partly implements the tea.Model
+// View applies the compositing and handles rendering the view. It partly implements the tea.Model
 // interface.
 func (m *Model) View() string {
 	if m.Foreground == nil && m.Background == nil {
