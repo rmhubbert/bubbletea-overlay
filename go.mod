@@ -1,4 +1,4 @@
-module github.com/rmhubbert/bubble-overlay
+module github.com/rmhubbert/bubbletea-overlay
 
 go 1.23.4
 
