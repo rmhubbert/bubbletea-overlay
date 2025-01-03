@@ -16,4 +16,4 @@ go mod tidy
 go run ./...
 ```
 
-Once running, you can toggle the modal window by pressing the <space> key. Pressing <esc> or q will close the program.
+Once running, you can toggle the modal window by pressing the \<space> key. Pressing \<esc> or q will close the program.
