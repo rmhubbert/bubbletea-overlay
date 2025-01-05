@@ -68,8 +68,8 @@ func offsets(fg, bg string, xPos, yPos Position, xOff, yOff int) (int, int) {
 	var x, y int
 	switch xPos {
 	case Center:
-		halfBackgroundWidth := (lipgloss.Width(bg) + 1) / 2
-		halfForegroundWidth := (lipgloss.Width(fg) + 1) / 2
+		halfBackgroundWidth := lipgloss.Width(bg) / 2
+		halfForegroundWidth := lipgloss.Width(fg) / 2
 		x = halfBackgroundWidth - halfForegroundWidth
 	case Right:
 		x = lipgloss.Width(bg) - lipgloss.Width(fg)
@@ -77,8 +77,8 @@ func offsets(fg, bg string, xPos, yPos Position, xOff, yOff int) (int, int) {
 
 	switch yPos {
 	case Center:
-		halfBackgroundHeight := (lipgloss.Height(bg) + 1) / 2
-		halfForegroundHeight := (lipgloss.Height(fg) + 1) / 2
+		halfBackgroundHeight := lipgloss.Height(bg) / 2
+		halfForegroundHeight := lipgloss.Height(fg) / 2
 		y = halfBackgroundHeight - halfForegroundHeight
 	case Bottom:
 		y = lipgloss.Height(bg) - lipgloss.Height(fg)
