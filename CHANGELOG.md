@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.3.0] - 2025-01-05
+### :sparkles: New Features
+- [`e91fd0b`](https://github.com/rmhubbert/bubbletea-overlay/commit/e91fd0b06dca529cdad4b4e197975923a43cf95e) - change offsets to bias towards top left when calculating center *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+
+### :white_check_mark: Tests
+- [`c43b493`](https://github.com/rmhubbert/bubbletea-overlay/commit/c43b4932a6896b41e3baefeda74c806b3a23736e) - add unit tests for clamp, lines and offsets functions *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+- [`aef6fbc`](https://github.com/rmhubbert/bubbletea-overlay/commit/aef6fbc8735e9c390a9dc09d2c8ae9b2a117ea24) - update offsets unit tests to test for new center calculations *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+- [`a040c14`](https://github.com/rmhubbert/bubbletea-overlay/commit/a040c1475d8d616ede4cc58c0ed80a226a32d348) - add unit tests for composite function *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+
+
 ## [v0.2.1] - 2025-01-03
 ### :recycle: Refactors
 - [`7328905`](https://github.com/rmhubbert/bubbletea-overlay/commit/7328905dd01ae14f2204041a44bc1596f4374377) - update example app to use ovelay.New instead of instantiating directly *(commit by [@rmhubbert](https://github.com/rmhubbert))*
@@ -43,3 +53,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v0.1.3]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.1.2...v0.1.3
 [v0.2.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.1.3...v0.2.0
 [v0.2.1]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.2.0...v0.2.1
+[v0.3.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.2.1...v0.3.0
