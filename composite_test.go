@@ -84,8 +84,8 @@ func Test_offsets(t *testing.T) {
 			Center,
 			0,
 			0,
-			3,
 			2,
+			3,
 		},
 		{
 			"centered, odd fg height and width, with offset",
@@ -106,8 +106,8 @@ func Test_offsets(t *testing.T) {
 			Center,
 			0,
 			0,
-			3,
 			2,
+			3,
 		},
 		{
 			"centered, even fg height and width, with offset",
@@ -117,8 +117,8 @@ func Test_offsets(t *testing.T) {
 			Center,
 			1,
 			1,
-			4,
 			3,
+			4,
 		},
 		{
 			"top left, odd fg height and width, no offset",
