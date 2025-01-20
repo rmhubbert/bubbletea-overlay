@@ -40,6 +40,7 @@ func (m *Foreground) View() string {
 	boldStyle := lipgloss.NewStyle().Bold(true)
 	title := boldStyle.Render("Bubble Tea Overlay")
 	content := "Hello! I'm in a modal window.\n\nPress <space> to close the window."
+	layout := lipgloss.JoinVertical(lipgloss.Left, title, content)
 
-	return foreStyle.Render(title + "\n\n" + content)
+	return foreStyle.Render(layout)
 }

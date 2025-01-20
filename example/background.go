@@ -60,5 +60,5 @@ func (m *Background) View() string {
 	content := backStyle.Render(mainContent)
 	footer := footerStyle.Render(footerContent)
 
-	return content + "\n" + footer
+	return lipgloss.JoinVertical(lipgloss.Left, content, footer)
 }
