@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.3.1] - 2025-01-20
+### :recycle: Refactors
+- [`5da9acf`](https://github.com/rmhubbert/bubbletea-overlay/commit/5da9acfd6a2acc5ff1df7609230ed1d037e035ce) - remove explicit width from example foreground *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+
+
 ## [v0.3.0] - 2025-01-05
 ### :sparkles: New Features
 - [`e91fd0b`](https://github.com/rmhubbert/bubbletea-overlay/commit/e91fd0b06dca529cdad4b4e197975923a43cf95e) - change offsets to bias towards top left when calculating center *(commit by [@rmhubbert](https://github.com/rmhubbert))*
@@ -54,3 +59,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v0.2.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.1.3...v0.2.0
 [v0.2.1]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.2.0...v0.2.1
 [v0.3.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.2.1...v0.3.0
+[v0.3.1]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.3.0...v0.3.1
