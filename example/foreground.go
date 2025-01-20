@@ -35,8 +35,7 @@ func (m *Foreground) View() string {
 	foreStyle := lipgloss.NewStyle().
 		Border(lipgloss.RoundedBorder(), true).
 		BorderForeground(lipgloss.Color("6")).
-		Padding(0, 1).
-		Width(40)
+		Padding(0, 1)
 
 	boldStyle := lipgloss.NewStyle().Bold(true)
 	title := boldStyle.Render("Bubble Tea Overlay")
