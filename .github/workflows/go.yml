@@ -16,6 +16,9 @@ jobs:
   lint:
     name: Analyse & Lint
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -39,6 +42,9 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -60,6 +66,9 @@ jobs:
     name: Increment the version
     needs: [lint, test]
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
     outputs:
       next-version: ${{ steps.semver.outputs.next }}
     steps:
@@ -89,6 +98,9 @@ jobs:
     name: Create a new release
     needs: [semver-bump]
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
