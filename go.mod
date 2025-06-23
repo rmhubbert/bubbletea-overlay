@@ -5,7 +5,7 @@ go 1.23.4
 require (
 	github.com/charmbracelet/bubbletea v1.3.5
 	github.com/charmbracelet/lipgloss v1.1.0
-	github.com/charmbracelet/x/ansi v0.9.2
+	github.com/charmbracelet/x/ansi v0.9.3
 	github.com/stretchr/testify v1.10.0
 )
 
