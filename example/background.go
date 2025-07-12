@@ -40,10 +40,10 @@ func (m *Background) View() string {
 		Foreground(lipgloss.Color("8"))
 
 	var row, mainContent string
-	for i := 0; i < (m.windowWidth/2)-1; i++ {
+	for range (m.windowWidth / 2) - 1 {
 		row += "XO"
 	}
-	for x := 0; x < m.windowHeight-5; x++ {
+	for x := range m.windowHeight - 5 {
 		if x > 0 {
 			mainContent += "\n"
 		}
