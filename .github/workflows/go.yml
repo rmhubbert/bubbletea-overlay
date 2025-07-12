@@ -94,6 +94,7 @@ jobs:
         with:
           tag: ${{ steps.semver.outputs.next }}
           message: "${{ steps.semver.outputs.next }}"
+          token: ${{ github.token }}
 
   #################################################
   # Update changelog and release
