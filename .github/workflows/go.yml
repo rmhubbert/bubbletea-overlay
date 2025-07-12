@@ -3,8 +3,6 @@
 ---
 name: Analyse, lint, test & release
 
-permissions: write-all
-
 on:
   push:
     branches: ["main"]
@@ -71,7 +69,7 @@ jobs:
     needs: [lint, test]
     runs-on: ubuntu-22.04
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     outputs:
       next-version: ${{ steps.semver.outputs.next }}
@@ -94,7 +92,6 @@ jobs:
         with:
           tag: ${{ steps.semver.outputs.next }}
           message: "${{ steps.semver.outputs.next }}"
-          token: ${{ github.token }}
 
   #################################################
   # Update changelog and release
@@ -104,7 +101,7 @@ jobs:
     needs: [semver-bump]
     runs-on: ubuntu-22.04
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     steps:
       - name: Checkout code
