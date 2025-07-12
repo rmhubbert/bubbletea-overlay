@@ -35,7 +35,7 @@ jobs:
         uses: golangci/golangci-lint-action@v8
         with:
           # version: v1.60.3
-          version: v2.3.4
+          version: v2.3
           args: -E staticcheck -E goimports -E gofmt -E gomoddirectives -E gosec -E predeclared -E bodyclose -E durationcheck -E errname -E gocheckcompilerdirectives -E nosprintfhostport -E reassign -E testifylint
 
   #################################################
