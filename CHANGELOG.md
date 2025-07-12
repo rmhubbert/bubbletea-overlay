@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.4.0] - 2025-07-12
+### :sparkles: New Features
+- [`aa0327c`](https://github.com/rmhubbert/bubbletea-overlay/commit/aa0327c6d2266db823e6487bc1ca7b9ac1830587) - modernise loops *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+
+### :bug: Bug Fixes
+- [`100980c`](https://github.com/rmhubbert/bubbletea-overlay/commit/100980c038cfe4454ed28f0c28a3228dde7bc19a) - debug file permission is too permissive *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+- [`d1f9339`](https://github.com/rmhubbert/bubbletea-overlay/commit/d1f93393961c0460b565061e2c39cae016da9042) - handle error from deferred file close *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+
+
 ## [v0.3.2] - 2025-01-20
 ### :recycle: Refactors
 - [`b3087bd`](https://github.com/rmhubbert/bubbletea-overlay/commit/b3087bd35b408d95f05016e8f5184d425f365044) - use lipgloss.JoinVertical to handle vertical layout in the example *(commit by [@rmhubbert](https://github.com/rmhubbert))*
@@ -66,3 +75,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v0.3.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.2.1...v0.3.0
 [v0.3.1]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.3.0...v0.3.1
 [v0.3.2]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.3.1...v0.3.2
+[v0.4.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.3.2...v0.4.0
