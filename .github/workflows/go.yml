@@ -3,12 +3,7 @@
 ---
 name: Analyse, lint, test & release
 
-permissions:
-  contents: write
-  actions: write
-  pull-requests: write
-  security-events: write
-  statuses: read
+permissions: write-all
 
 on:
   push:
