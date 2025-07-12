@@ -21,6 +21,11 @@ func debug(lines ...string) {
 			fmt.Println("fatal:", err)
 			os.Exit(1)
 		}
-		defer f.Close()
+		defer func() {
+			err := f.Close()
+			if err != nil {
+				fmt.Printf("could not close debug file: %v", err)
+			}
+		}()
 	}
 }
