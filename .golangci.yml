@@ -1,0 +1,22 @@
+---
+version: '2'
+linters:
+  default: none
+  enable:
+    - staticcheck
+    - gomoddirectives
+    - gosec
+    - govet
+    - predeclared
+    - bodyclose
+    - durationcheck
+    - errname
+    - gocheckcompilerdirectives
+    - nosprintfhostport
+    - reassign
+    - testifylint
+    - errcheck
+    - ineffassign
+    - unused
+formatters:
+  enable: [goimports, golines]

@@ -36,7 +36,7 @@ jobs:
         with:
           # version: v1.60.3
           version: latest
-          args: -E staticcheck -E gomoddirectives -E gosec -E predeclared -E bodyclose -E durationcheck -E errname -E gocheckcompilerdirectives -E nosprintfhostport -E reassign -E testifylint
+          # args: -E staticcheck -E gomoddirectives -E gosec -E predeclared -E bodyclose -E durationcheck -E errname -E gocheckcompilerdirectives -E nosprintfhostport -E reassign -E testifylint
 
   #################################################
   # Run tests
@@ -85,7 +85,7 @@ jobs:
           branch: main
           majorList: "build!, ci!, docs!, feat!, fix!, perf!, refactor!, style!, test!"
           minorList: "feat"
-          patchList: "fix, perf, refactor, test"
+          patchList: "fix, perf, refactor, test, build, ci, docs"
 
       - name: Push next version tag
         uses: thejeff77/action-push-tag@v1.0.0
