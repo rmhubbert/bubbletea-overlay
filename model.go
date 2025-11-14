@@ -64,7 +64,7 @@ func (m *Model) View() string {
 		return m.Foreground.View()
 	}
 
-	return composite(
+	return Composite(
 		m.Foreground.View(),
 		m.Background.View(),
 		m.XPosition,

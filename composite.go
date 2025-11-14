@@ -8,10 +8,10 @@ import (
 	"github.com/charmbracelet/x/ansi"
 )
 
-// composite merges and flattens the background and foreground views into a single view.
+// Composite merges and flattens the background and foreground views into a single view.
 // This implementation is based off of the one used by Superfile -
 // https://github.com/yorukot/superfile/blob/main/src/pkg/string_function/overplace.go
-func composite(fg, bg string, xPos, yPos Position, xOff, yOff int) string {
+func Composite(fg, bg string, xPos, yPos Position, xOff, yOff int) string {
 	fgWidth, fgHeight := lipgloss.Size(fg)
 	bgWidth, bgHeight := lipgloss.Size(bg)
 

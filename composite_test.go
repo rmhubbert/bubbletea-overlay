@@ -307,7 +307,7 @@ func Test_offsets(t *testing.T) {
 	}
 }
 
-func Test_composite(t *testing.T) {
+func Test_Composite(t *testing.T) {
 	fg := strings.Repeat("abc\n", 2) + "abc"
 	bg := strings.Repeat("1234567\n", 6) + "1234567"
 
@@ -597,7 +597,7 @@ func Test_composite(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			x := composite(test.fg, test.bg, test.xPos, test.yPos, test.xOff, test.yOff)
+			x := Composite(test.fg, test.bg, test.xPos, test.yPos, test.xOff, test.yOff)
 			assert.Equal(t, test.expected, x, "x should be equal")
 		})
 	}
