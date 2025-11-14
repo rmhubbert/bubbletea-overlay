@@ -21,12 +21,18 @@ You can access the [full source code for the example application in the example 
 
 Basically, **Overlay** is a standard `tea.Model instance`, so its lifecycle is identical to any other model in a Bubble Tea application. **Overlay** simply wraps two `tea.Models`, one that will render the background, and one that will render the foreground. Calling `View()` on the **Overlay** model will composite the foreground onto the background and return the result as a string.
 
+Alternatively, you can directly use the 'Composite' function in the `overlay` package to create the composited string yourself from a background and foreground string, position, and offset. The position and offsets will be applied to the foreground string.
+
+```go
+output := overlay.Composite(foregroundString, backgroundString, xPosition, yPosition, xOffset, yOffset)
+```
+
 ### Updates
 **Overlay** will not call `Update()` on the background and foreground models. This is by design, **Overlay** should only be concerned with handling the compositing of the two models, and should not presume that those models should currently receive an update. Manage those updates from the code that created the **Overlay** in the first place. An example of this can be seen in the `Manager` model in the [example application](https://github.com/rmhubbert/bubbletea-overlay/tree/main/example).
 
 ### Positioning
 
-You can position your foreground model in two ways. Primarily, you set an `overlay.Position` for both the vertical and horizontal axes. Possible values as follows: 
+You can position your foreground model in two ways. Primarily, you set an `overlay.Position` for both the vertical and horizontal axes. Possible values as follows:
 
 - `overlay.Top`
 - `overlay.Right`
@@ -36,10 +42,10 @@ You can position your foreground model in two ways. Primarily, you set an `overl
 
 As you can probably guess, these will allow you to position your overlay in combinations such as Right Top, Center Center, Left Bottom, etc, in relation to the background model.
 
-In addition, you can also set X and Y offset values, which will be added to the X and Y `overlay.Position` values. This allows you to fine tune your postioning, or simulate a margin on your foreground model. 
+In addition, you can also set X and Y offset values, which will be added to the X and Y `overlay.Position` values. This allows you to fine tune your postioning, or simulate a margin on your foreground model.
 
 ### Lipgloss compatibility
-**Overlay** should play nicely with [Charm's Lipgloss style definition library](https://github.com/charmbracelet/lipgloss) with one caveat; adding margins or positioning to the foreground model will probably not work as you are expecting. Use **Overlay**'s postioning and offsets instead. 
+**Overlay** should play nicely with [Charm's Lipgloss style definition library](https://github.com/charmbracelet/lipgloss) with one caveat; adding margins or positioning to the foreground model will probably not work as you are expecting. Use **Overlay**'s postioning and offsets instead.
 
 ### Initialising
 
