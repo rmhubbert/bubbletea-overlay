@@ -66,7 +66,11 @@ func Composite(fg, bg string, xPos, yPos Position, xOff, yOff int) string {
 // tea.Model relative to the background tea.Model.
 func offsets(fg, bg string, xPos, yPos Position, xOff, yOff int) (int, int) {
 	var x, y int
+
+	// Handle X axis positioning
 	switch xPos {
+	case Left:
+		x = 0
 	case Center:
 		halfBackgroundWidth := lipgloss.Width(bg) / 2
 		halfForegroundWidth := lipgloss.Width(fg) / 2
@@ -75,7 +79,10 @@ func offsets(fg, bg string, xPos, yPos Position, xOff, yOff int) (int, int) {
 		x = lipgloss.Width(bg) - lipgloss.Width(fg)
 	}
 
+	// Handle Y axis positioning
 	switch yPos {
+	case Top:
+		y = 0
 	case Center:
 		halfBackgroundHeight := lipgloss.Height(bg) / 2
 		halfForegroundHeight := lipgloss.Height(fg) / 2
