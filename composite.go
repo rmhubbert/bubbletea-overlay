@@ -12,6 +12,17 @@ import (
 // This implementation is based off of the one used by Superfile -
 // https://github.com/yorukot/superfile/blob/main/src/pkg/string_function/overplace.go
 func Composite(fg, bg string, xPos, yPos Position, xOff, yOff int) string {
+	if fg == "" {
+		return bg
+	}
+	if bg == "" {
+		return fg
+	}
+	if strings.Count(fg, "\n") == 0 && strings.Count(bg, "\n") == 0 {
+		// Simple case: both are single line
+		return fg
+	}
+
 	fgWidth, fgHeight := lipgloss.Size(fg)
 	bgWidth, bgHeight := lipgloss.Size(bg)
 

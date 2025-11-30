@@ -593,6 +593,46 @@ func Test_Composite(t *testing.T) {
 				2,
 			) + "1234abc",
 		},
+		{
+			"both foreground and background empty",
+			Center,
+			Center,
+			0,
+			0,
+			"",
+			"",
+			"",
+		},
+		{
+			"empty foreground, non-empty background",
+			Center,
+			Center,
+			0,
+			0,
+			"",
+			"test background",
+			"test background",
+		},
+		{
+			"non-empty foreground, empty background",
+			Center,
+			Center,
+			0,
+			0,
+			"test foreground",
+			"",
+			"test foreground",
+		},
+		{
+			"foreground width equals background width",
+			Center,
+			Center,
+			0,
+			0,
+			"1234567", // Same width as bg line
+			strings.Repeat("1234567\n", 6) + "1234567",
+			"1234567\n1234567\n1234567\n1234567\n1234567\n1234567\n1234567",
+		},
 	}
 
 	for _, test := range tests {
