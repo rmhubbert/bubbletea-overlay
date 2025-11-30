@@ -18,7 +18,7 @@ const (
 	Center
 )
 
-// Model implements tea.Model, and manages calculatin and compositing the overlay UI from the
+// Model implements tea.Model, and manages calculating and compositing the overlay UI from the
 // backbround and foreground models.
 type Model struct {
 	Foreground tea.Model
