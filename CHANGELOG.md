@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.5.1] - 2025-11-30
+### :bug: Bug Fixes
+- [`cf33fac`](https://github.com/rmhubbert/bubbletea-overlay/commit/cf33fac45c36743ba9ba6b185284d08c0b30a431) - not all offset and position combinations are covered *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+- [`232e21e`](https://github.com/rmhubbert/bubbletea-overlay/commit/232e21ea645a4370fc960e6e3cb18cc90d8a48e3) - inverted bounds are not considered when clamping *(commit by [@rmhubbert](https://github.com/rmhubbert))*
+
+
 ## [v0.5.0] - 2025-11-14
 ### :sparkles: New Features
 - [`c7fe5dd`](https://github.com/rmhubbert/bubbletea-overlay/commit/c7fe5dd5f7a7b8b00f763d33ea4ef4f02d0dd45a) - allow external access to composite function *(commit by [@rmhubbert](https://github.com/rmhubbert))*
@@ -82,3 +88,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v0.3.2]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.3.1...v0.3.2
 [v0.4.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.3.2...v0.4.0
 [v0.5.0]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.4.4...v0.5.0
+[v0.5.1]: https://github.com/rmhubbert/bubbletea-overlay/compare/v0.5.0...v0.5.1
