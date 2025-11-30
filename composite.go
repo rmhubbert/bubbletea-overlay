@@ -105,12 +105,19 @@ func offsets(fg, bg string, xPos, yPos Position, xOff, yOff int) (int, int) {
 	return x + xOff, y + yOff
 }
 
-// clamp calculates the lowest possible number between the given boundaries.
+// clamp clamps a value between lower and upper bounds.
 func clamp(v, lower, upper int) int {
-	if upper < lower {
-		return min(max(v, upper), lower)
+	// Handle case where bounds are inverted (e.g., min > max)
+	if lower > upper {
+		lower, upper = upper, lower
 	}
-	return min(max(v, lower), upper)
+	if v < lower {
+		return lower
+	}
+	if v > upper {
+		return upper
+	}
+	return v
 }
 
 // lines normalises any non standard new lines within a string, and then splits and returns a slice
