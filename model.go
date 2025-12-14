@@ -18,11 +18,19 @@ const (
 	Center
 )
 
+type Foreground interface {
+	View() string
+}
+
+type Background interface {
+	View() string
+}
+
 // Model implements tea.Model, and manages calculating and compositing the overlay UI from the
 // backbround and foreground models.
 type Model struct {
-	Foreground tea.Model
-	Background tea.Model
+	Foreground Foreground
+	Background Background
 	XPosition  Position
 	YPosition  Position
 	XOffset    int
@@ -30,7 +38,7 @@ type Model struct {
 }
 
 // New creates, instantiates, and returns a pointer to a new overlay Model.
-func New(fore tea.Model, back tea.Model, xPos Position, yPos Position, xOff int, yOff int) *Model {
+func New(fore Foreground, back Background, xPos Position, yPos Position, xOff int, yOff int) *Model {
 	return &Model{
 		Foreground: fore,
 		Background: back,
