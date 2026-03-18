@@ -6,7 +6,7 @@
 **Overlay** is a component for [Charm's Bubble Tea TUI framework](https://github.com/charmbracelet/bubbletea) that aims to simplify creating and managing overlays and modal windows in your TUI apps.
 
 ## Update as of 28th Feb 2026
-**v2 of Charm's Bubbletea & Lipgloss packages have now launched. [Lipgloss v2 has compositing built in](https://github.com/charmbracelet/lipgloss?tab=readme-ov-file#compositing), so you should probably use that instead if you are using v2 of Bubbletea. I'll keep maintaining this package for users of Bubbletea and Lipgloss v1, but won't be adding any additional features.**
+**v2 of Charm's Bubbletea & Lipgloss packages have now launched. [Lipgloss v2 has compositing built in](https://github.com/charmbracelet/lipgloss?tab=readme-ov-file#compositing), so you should probably use that instead if you are using v2 of Bubbletea. I'll keep maintaining this package for users of Bubbletea and Lipgloss v1, plus those using the package directly outside of Bubbletea, but I won't be adding any additional features.**
 
 ![running the program](./example/example.gif)
 
